@@ -18,21 +18,22 @@ export class MenstrualCalculation {
         this.endDate = this.startDate + this.cycle
         if (this.endDate > this.numberOfDaysInMonth){
             this.endDate = this.endDate - this.numberOfDaysInMonth;
-            this.endMonth = this.startMonth + ++this.monthIncrement;
+            if (this.endMonth <= 12) this.endMonth = this.startMonth + ++this.monthIncrement;
+            else this.endMonth = this.startMonth - 12 + ++this.monthIncrement;
         }else{
             this.endMonth = this.startMonth;
         }
     }
-    getEndDate(){
+    get getEndDate(){
         return this.endDate;
     }
-    getEndMonth(){
+    get getEndMonth(){
         return this.endMonth;
     }
-    getStartDate(){
+    get getStartDate(){
         return this.startDate;
     }
-    getStartMonth(){
+    get getStartMonth(){
         return this.startMonth;
     }
 }

@@ -6,22 +6,13 @@ export class Date {
 
     constructor(month) {
         this.month = month;
-        this.setDate();
+        this.validateMonth();
         this.getDate();
     }
-    setDate(){
-        for (let i of this.thirtyOneMonths) {
-            if (this.month === i) {
-                this.numberOfDaysInMonths = 31;
-            }
-        }
-        for (let thirtyMonthsKey of this.thirtyMonths){
-        if (thirtyMonthsKey === this.month){
-            this.numberOfDaysInMonths = 30;
-        }
-        if (this.month === 2){
-            this.numberOfDaysInMonths = 28;
-        }}
+    validateMonth(){
+        for (let i of this.thirtyOneMonths) if (this.month === i) this.numberOfDaysInMonths = 31;
+        for (let thirtyMonthsKey of this.thirtyMonths)if (thirtyMonthsKey === this.month) this.numberOfDaysInMonths = 30; if (this.month === 2) this.numberOfDaysInMonths = 28;
+
     }
     getDate(){
         return this.numberOfDaysInMonths;
